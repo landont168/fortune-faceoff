@@ -1,0 +1,108 @@
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+
+table {
+    background-color: transparent;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+table th,
+table td {
+    padding: 0.75rem;
+    vertical-align: middle;
+}
+
+tbody tr:nth-of-type(odd) {
+    background-color: rgb(179, 208, 255, 0.3)
+}
+
+
+.split-screen {
+    display: flex;
+    overflow: hidden; /* Disable scrolling for this element */
+    position: relative; /* Add this line for positioning the ::before pseudo-element */
+}
+
+
+.split-left,
+.split-right {
+    flex: 1;
+    padding: 200px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    text-align: center;
+}
+
+
+.split-left img, .split-right img {
+    /* Remove the border-radius property to display the original image shape */
+    margin-bottom: 20px;
+}
+
+.bottom-left {
+    position: fixed;
+    bottom: 10px; /* Adjust the bottom distance as needed */
+    left: 10px; /* Adjust the left distance as needed */
+}
+
+.bottom-right {
+    position: fixed;
+    bottom: 10px; /* Adjust the bottom distance as needed */
+    right: 10px; /* Adjust the right distance as needed */
+}
+
+
+.icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px; /* Set a fixed width for the container */
+    height: 200px; /* Set a fixed height for the container */
+    overflow: hidden; /* Hide any overflowing content */
+}
+
+.icon img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.responsive-image {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+.logo-image {
+    max-width: 40px; /* Adjust the max-width of the image as needed */
+    margin-right: 10px; /* Adjust the margin between the image and text as needed */
+}
