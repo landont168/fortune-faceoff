@@ -1,0 +1,7 @@
+BeautifulSoup
+Flask
+Flask-Session
+cs50
+humanize
+requests
+yfinance
