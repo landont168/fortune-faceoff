@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Account
+{% endblock %}
+
+{% block main %}
+    <h2>Account Settings</h2>
+    <hr class="invisible">
+    <!-- Submit user's password change via POST to /password_change -->
+    <form action="/account" method="post">
+        <h4>Change Password</h4>
+        <!-- Require current password and confirmation -->
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="password" name="password" placeholder="Current Password" type="text">
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="new_password" name="new_password" placeholder="New Password" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="confirmation" name="confirmation" placeholder="Repeat Password" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Change Password</button>
+    </form>
+{% endblock %}

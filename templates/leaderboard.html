@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Leaderboard
+{% endblock %}
+
+{% block main %}
+    <!-- Displays leaderboard of top 10 scores -->
+    <table>
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Username</th>
+                <th>Score</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Dynamically display leaderboard -->
+            {% for row in leaderboard %}
+                <tr>
+                    <td>{{ loop.index }} </td>
+                    <td>{{ row["username"] }}</td>
+                    <td>{{ row["score"] }}</td>
+                    <td>{{ row["date"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

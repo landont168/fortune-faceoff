@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Game Over
+{% endblock %}
+
+{% block main %}
+    <!-- Display game over screen -->
+    <div class="mb-3">
+        <h1>Game over!</h1>
+        <img src="{{ url_for('static', filename=gif) }}" alt="game over" width="400">
+    </div>
+    <div class="mb-3">
+        <h2>Score: {{ score }}</h2>
+        <p>{{ message }}</p>
+    </div>
+    <form action="/game" method="get">
+        <button type="submit" class="btn btn-danger">Try again</button>
+    </form>
+{% endblock %}

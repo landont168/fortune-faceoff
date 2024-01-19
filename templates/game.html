@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Game
+{% endblock %}
+
+{% block main %}
+    <!-- Game Screen -->
+    <div class="split-screen" class="game">
+        <!-- Left Split Screen -->
+        <div class="split-left">
+            <img src="{{ company1['logo'] }}" alt="Logo" class="responsive-image">
+            <h1>{{ company1["ticker"] }}</h1>
+            <p>is worth</p>
+            <h2>{{ company1["market_cap"] | usd }}</h2>
+        </div>
+
+        <!-- Versus Border -->
+        <div class="icon">
+            <img src="static/versus.png" alt="correct" width="100">
+        </div>
+
+        <!-- Right Split Screen -->
+        <div class="split-right">
+            <img src="{{ company2['logo'] }}" alt="Amazon Logo" class="responsive-image">
+            <h1>{{ company2["ticker"] }}</h1>
+            <p>is worth</p>
+
+            <!-- Send POST request with user choice -->
+            <form action="/game" method="post">
+                <div class="options">
+                    <button type="submit" button type="button" class="btn btn-success" name="guess" value="higher">More</button>
+                    <button type="submit" button type="button" class="btn btn-danger" name="guess" value="lower">Less</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Bottom Left -->
+        <div class="bottom-left">
+            <h5>High Score: {{ high_score }}</h5>
+        </div>
+
+        <!-- Bottom Right -->
+        <div class="bottom-right">
+            <h5>Score: {{ score }}</h5>
+        </div>
+    </div>
+{% endblock %}

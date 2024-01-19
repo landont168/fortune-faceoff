@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    S&P 500
+{% endblock %}
+
+{% block main %}
+    <!-- Displays leaderboard of top 10 scores -->
+    <div class="mb-3">
+        <img src="static/wolf.jpeg" alt="wolf" width="400">
+    </div>
+    <div class="mb-3">
+        <h2>What is the S&P 500?</h2>
+        <br>
+        <p>The S&P 500 is a market-capitalization-weighted index of 500 leading publicly traded companies in the US.</p>
+        <p>Because of its depth and diversity, the S&P 500 is widely considered one of the best gauges of large U.S. stocks, and even the entire equities market.</p>
+        <br>
+    </div>
+
+    <!-- Display all stocks -->
+    <h3>Largest companies in the S&P 500 by market capitalization</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Symbol</th>
+                <th>Market Cap</th>
+                <th>Sector</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Dynamically display information -->
+            {% for row in companies %}
+                <tr>
+                    <td>{{ loop.index }} </td>
+                    <td>
+                        <img src="{{ row['logo'] }}" alt="{{ row['ticker'] }} Logo" class="logo-image">
+                        <span>{{ row["name"] }}</span>
+                    </td>
+                    <td>{{ row["ticker"] }}</td>
+                    <td>{{ row["market_cap"] | usd }}</td>
+                    <td>{{ row["sector"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <!-- Displays homepage -->
+    <div class="mb-3">
+        <img src="static/logo.jpeg" alt="wsb" width="500">
+    </div>
+    <div class="mb-3">
+        <h2>Which company is worth more?</h2>
+        <br>
+        <p>A fun game of higher or lower using the market capitalization of companies in the S&P 500.</p>
+        <p>The data is based from December 2023.</p>
+    </div>
+    <form action="/game" method="get">
+        <button type="submit" class="btn btn-success">Play</button>
+    </form>
+{% endblock %}

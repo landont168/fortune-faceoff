@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Game
+{% endblock %}
+
+{% block main %}
+    <!-- Game Screen -->
+    <div class="split-screen">
+        <!-- Left Split Screen -->
+        <div class="split-left">
+            <img src="{{ company1['logo'] }}" alt="Logo" class="responsive-image">
+            <h1>{{ company1["ticker"] }}</h1>
+            <p>is worth</p>
+            <h2>{{ company1["market_cap"] | usd }}</h2>
+        </div>
+
+        <!-- Right Split Screen -->
+        <div class="split-right">
+            <img src="{{ company2['logo'] }}" alt="Amazon Logo" class="responsive-image">
+            <h1>{{ company2["ticker"] }}</h1>
+            <p>is worth</p>
+            <h2>{{ company2["market_cap"] | usd }}</h2>
+
+            <!-- Display proper button -->
+            {% if correct %}
+                <button class="btn btn-success" onclick="redirectToNewRoute()">Next</button>
+            {% else %}
+                <button class="btn btn-danger" onclick="redirectToGameOver({{ score }})">End Game</button>
+            {% endif %}
+        </div>
+
+        <!-- Display appropriate icon -->
+        {% if correct %}
+            <div class="icon">
+                <img src="static/correct.png" alt="correct" width="100">
+            </div>
+        {% else %}
+            <div class="icon">
+                <img src="static/incorrect.png" alt="incorrect" width="100">
+            </div>
+        {% endif %}
+
+        <!-- Next -->
+        <script>
+            function redirectToNewRoute(){
+                window.location.href = '{{ url_for("game") }}';
+            }
+        </script>
+
+        <!-- End Game -->
+        <script>
+            function redirectToGameOver(score) {
+                window.location.href = '{{ url_for("game_over", score=score) }}';
+            }
+        </script>
+
+        <!-- High Score -->
+        <div class="bottom-left">
+            <h5>High Score: {{ high_score }}</h5>
+        </div>
+
+        <!-- Current Score -->
+        <div class="bottom-right">
+            <h5>Score: {{ score }}</h5>
+        </div>
+    </div>
+{% endblock %}
